@@ -1,0 +1,22 @@
+logging:
+  level:
+    root : info
+    dev.danielk0121.test: debug
+server:
+  servlet:
+    context-path: /
+  port: 80
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  datasource: 
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver 
+      jdbc-url: "jdbc:mysql://192.168.56.101:3306/shorten?characterEncoding=UTF-8&serverTimezone=Asia/Seoul"
+      username: "shorten"
+      password: "123123"
+  redis:
+    host: "localhost"
+    port: 6370
