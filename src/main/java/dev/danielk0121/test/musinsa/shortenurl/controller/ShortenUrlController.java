@@ -48,6 +48,11 @@ public class ShortenUrlController {
 		}
 		
 		ShortenData shortenData = shortenDataService.findByShortenKeyWithCache(shortenKey);
+		if(shortenData.getShortenUrl() == null) {
+//			return "forward:/";
+//			throw new resource
+			return "404";
+		}
 		String url = shortenData.getShortenUrl().getUrl();
 		shortenDataService.updateShortenUrlByIdOnViewcntAsync(shortenData);
 		return "redirect:" + url;
