@@ -5,23 +5,22 @@
 # 문제
 ```
 과제 내용: 
-**URL을 입력받아 짧게 줄여주고, Shortening된 URL을 입력하면 원래 URL로 리다이렉트하는 URL Shortening Service**
+URL을 입력받아 짧게 줄여주고, Shortening된 URL을 입력하면 원래 URL로 리다이렉트하는 URL Shortening Service
 예) https://en.wikipedia.org/wiki/URL_shortening => http://localhost/JZfOQNro
 
 - URL 입력폼 제공 및 결과 출력
-- URL Shortening Key는 8 Character 이내로 생성되어야 합니다.
-- 동일한 URL에 대한 요청은 동일한 Shortening Key로 응답해야 합니다.
+- URL Shortening Key는 8 Character 이내로 생성되어야 합니다
+- 동일한 URL에 대한 요청은 동일한 Shortening Key로 응답해야 합니다
 - 동일한 URL에 대한 요청 수 정보를 가져야 한다(화면 제공 필수 아님)
-- Shortening된 URL을 요청받으면 원래 URL로 리다이렉트 합니다.
+- Shortening된 URL을 요청받으면 원래 URL로 리다이렉트 합니다
 - Database 사용은 필수 아님
 
-다음의 경우 가산점이 부과됩니다.
-- Unit test 및 Integration test 작성.
- 
+다음의 경우 가산점이 부과됩니다
+- Unit test 및 Integration test 작성
 
 제출물:
-- 소스코드가 담긴 github.
-- github의 readme에는 해당 웹서버를 리눅스 기준으로 실행하기 위해 필요한 설치/빌드 방법이 작성되어 있어야 합니다.
+- 소스코드가 담긴 github
+- github의 readme에는 해당 웹서버를 리눅스 기준으로 실행하기 위해 필요한 설치/빌드 방법이 작성되어 있어야 합니다
 ```
 
 ## 주요 요구사항
@@ -67,7 +66,7 @@ java -jar shortenurl-1.0.jar
 - jsp, jquery (입력폼 화면)
 
 # 테이블 스키마
-- create 테이블 쿼리 참고: ![쿼리파일](docs/dbschema/create_shortenurl.sql)
+- create 테이블 쿼리 참고: [쿼리 파일 링크](docs/dbschema/create_shortenurl.sql)
 
 # 특이사항 - shortenKey 에 대한 사전 조사
 ```
@@ -79,13 +78,14 @@ java -jar shortenurl-1.0.jar
 라고 한다면...?
 
 62진법으로 표현하면 길이가 충분한가 ???
+62진법 8자리 최대값: base62_8digit_MAX
 
-LONG_MAX      9,223,372,036,854,775,807
-62진법 8자리 최대값                 218,340,105,584,895
-INT_MAX	                   2,147,483,647
+LONG_MAX        9,223,372,036,854,775,807
+INT_MAX                     2,147,483,647
+base62_8digit_MAX     218,340,105,584,895 // 100 조 단위
 
-mysql auto_increase int 부호없음을 사용하고
-java bean 에서 long 을 사용
+mysql 테이블, auto_increase int 부호없음을 사용하고
+java bean, long 을 사용
 ```
 
 # 특이사항
